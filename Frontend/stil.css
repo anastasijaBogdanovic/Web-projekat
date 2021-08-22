@@ -1,0 +1,205 @@
+:root {
+    background-image: url("https://i.pinimg.com/originals/d0/6a/03/d06a030a6a93c0edbd9a2a5a9777a9ae.jpg");
+    background-size: cover;
+  }
+
+.headline{
+    font-size: 60px;
+    color: lightcoral;
+    font-style: oblique;
+    display: flex;
+	margin-top: 30px;
+	margin-bottom: 50px;
+    justify-content: center;
+	align-items: center;
+}
+
+.container {
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.meni {
+	display: flex;
+	flex-direction: row;
+}
+
+.categories {
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	width: 15%;
+    list-style-type: none;
+	margin-right: 120px;
+}
+
+.category:hover {
+	background-color: lightcoral;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.list {
+	font-size: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.paintingDisplay {
+	color: black;
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+	border: 3px solid lightcoral;
+}
+
+.paintingDisplay:hover {
+	color: lightcoral;
+}
+
+.formPainting {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	margin-top: 25px;
+	width: 100%;
+}
+
+.edit {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.data {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+
+.addbtn, .updatebtn, .comboBox {
+	background-color: lightcoral;
+	color: white;
+	font-size: 20px;
+	flex-grow: 1;
+	border: 5px;
+	margin: 20px;
+}
+
+.addbtn:hover {
+	color: blueviolet;
+	cursor: pointer;
+	box-shadow: 3px 3px 0 blueviolet;
+}
+
+.updatebtn:hover {
+	color: blueviolet;
+	cursor: pointer;
+	box-shadow: 3px 3px 0 blueviolet;
+}
+
+.comboBox:hover{
+	color: blueviolet;
+	cursor: pointer;
+	box-shadow: 3px 3px 0 blueviolet;
+}
+
+.option:hover {
+	cursor: pointer;
+}
+
+.btns {
+	display: flex;
+	flex-direction: column;
+}
+
+.img{
+	height: 220px;
+	width: 150px;
+	margin: 20px;
+}
+
+.painting{
+	height: 180px;
+	width: 120px;
+	margin: 10px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	width: 380px;
+	margin-left: 20px;
+	text-align: center;
+	justify-content: center;
+}
+
+.name{
+	border: 1px solid black;
+}
+.artist{
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+.dimensions{
+	border: 1px solid black;
+	margin-right: 10px;
+	padding: 3px;
+}
+.yearOfCreation{
+	border: 1px solid black;
+	padding: 3px;
+}
+
+.numdata {
+	padding-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.form {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.categoryName {
+	font-size: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+	padding-top: 20px;
+	color: lightcoral;
+}
+
+.deleteButton{
+	margin-top: 30px;
+	background-color: lightcoral;
+	color: white;
+	width: 60px;
+
+}
+
+.deleteButton:hover {
+	color: blueviolet;
+	cursor: pointer;
+	box-shadow: 3px 3px 0 blueviolet;
+}
+
+@media only screen and (max-width: 1200px) {
+	.btns {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		width: 70%;
+	}
+  }
