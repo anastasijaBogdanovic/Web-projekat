@@ -83,27 +83,26 @@ export class Painting {
   }
 
   editPainting() {
-    document.querySelector(".editname").value = this.name;
-    document.querySelector(".editartist").value = this.artist;
-    document.querySelector(".editdimensions").value = this.dimensions;
-    document.querySelector(".editYearOfCreation").value = this.created;
-    document.querySelector(".editpaintingsimg").value = this.imageOfPainting;
-    document.querySelector(".img").src = this.imageOfPainting;
-    document.querySelector(".comboBox").disabled = true;
+    this.container.querySelector(".editname").value = this.name;
+    this.container.querySelector(".editartist").value = this.artist;
+    this.container.querySelector(".editdimensions").value = this.dimensions;
+    this.container.querySelector(".editYearOfCreation").value = this.created;
+    this.container.querySelector(".img").src = this.imageOfPainting;
+    this.container.querySelector(".comboBox").disabled = true;
 
-    let ident = document.querySelector(".id");
+    let ident = this.container.querySelector(".id");
     ident.value = this.id;
     ident.disabled = true;
   }
 
  emptyForm(){
-    document.querySelector(".editname").value = "";
-    document.querySelector(".editartist").value = ""; 
-    document.querySelector(".editYearOfCreation").value = null;
-    document.querySelector(".editdimensions").value = "";
-    document.querySelector(".editpaintingsimg").value = "";
-    document.querySelector(".id").value = "";
-    document.querySelector(".img").src = "";
-    document.querySelector(".comboBox").disabled = false;
-}
+    this.container.querySelector(".editname").value = "";
+    this.container.querySelector(".editartist").value = ""; 
+    this.container.querySelector(".editYearOfCreation").value = null;
+    this.container.querySelector(".editdimensions").value = "";
+    this.container.querySelector(".editpaintingsimg").value = "";
+    this.container.querySelector(".id").value = "";
+    this.container.querySelector(".img").src = "";
+    this.container.querySelector(".comboBox").disabled = false;
+ }
 }
