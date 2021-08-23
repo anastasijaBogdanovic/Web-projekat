@@ -12,8 +12,6 @@ export class Painting {
   draw(host) {
     if (!host) throw new Error("Host is undefined");
 
-    const t = this;
-
     this.container = document.createElement("a");
     this.container.href = "#";
     this.container.onclick = (ev) => {
