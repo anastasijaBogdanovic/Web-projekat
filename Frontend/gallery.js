@@ -1,11 +1,9 @@
 import { Painting } from "./painting.js";
-import { Category } from "./category.js";
 
 export class Gallery {
   constructor() {
     this.categories = [];
     this.container = null;
-    this.page;
   }
 
   addCategory(category) {
@@ -19,24 +17,15 @@ export class Gallery {
     host.appendChild(this.container);
     this.container.className = "container";
 
-    this.drawHeadline();
-    this.drawManu();
+    this.drawHeadline(this.container);
+    this.drawManu(this.container);
   }
 
-  drawHeadline() {
+  drawHeadline(host) {
     const headline = document.createElement("div");
     headline.className = "headline";
     headline.innerHTML = "Gallery";
-    this.container.appendChild(headline);
-  }
-
-  show(x, host) {
-    if (!host) throw new Error("Host is undefined");
-
-    var name = document.querySelector(".categoryName");
-    name.innerHTML = x.name;
-
-    x.draw(host);
+    host.appendChild(headline);
   }
 
   findCategoryByName(name) {
@@ -47,12 +36,10 @@ export class Gallery {
     }
   }
 
-  drawManu() {
-    const galerija = this;
-
+  drawManu(host) {
     const meni = document.createElement("div");
     meni.className = "meni";
-    this.container.appendChild(meni);
+    host.appendChild(meni);
 
     const categ = document.createElement("ul");
     categ.className = "categories";
@@ -62,7 +49,6 @@ export class Gallery {
     page.className = "page";
     meni.appendChild(page);
 
-    this.page = page;
     this.drawForm(page);
 
     const list = document.createElement("div");
@@ -79,11 +65,10 @@ export class Gallery {
       a.className = "category";
 
       categ.appendChild(link);
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function(){
         var categoryName = document.querySelector(".categoryName");
         categoryName.innerHTML = a.innerHTML;
-        galerija.show(element,page);
-        console.log("JEL OVO PRETISKAM____");
+        element.draw(document.querySelector(".page"));
       });
       link.appendChild(a);
     });
@@ -261,7 +246,7 @@ export class Gallery {
             alert("Error");
           });
 
-          this.emptyList(this.page, "added");
+          this.emptyList(document.querySelector(".page"), "added");
           this.emptyForm();
         
 
@@ -329,7 +314,7 @@ emptyList(host, x) {
           alert("Error");
         }); 
 
-        this.emptyList(this.page, "updated");
+        this.emptyList(document.querySelector(".page"), "updated");
         this.emptyForm();  
     }
   }
@@ -357,5 +342,6 @@ emptyList(host, x) {
     document.querySelector(".id").value = "";
     document.querySelector(".img").src = "";
     document.querySelector(".comboBox").disabled = false;
+    document.querySelector(".addbtn").disabled = false;
 }
 }
