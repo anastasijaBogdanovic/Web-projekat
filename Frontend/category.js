@@ -15,7 +15,7 @@ export class Category {
   draw(host) {
     if (!host) throw new Error("Host is undefined");
 
-    var el = document.querySelector(".list");
+    var el = this.container.querySelector(".list");
     host.removeChild(el);
 
     this.container = document.createElement("div");
