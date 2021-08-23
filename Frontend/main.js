@@ -4,13 +4,16 @@ import { Category } from "./category.js";
 
 fetch("https://localhost:5001/Gallery/GetGallery").then((p) => {
   p.json().then((data) => {
+    data.forEach(pod => {
     const g = new Gallery();
-    data[0].categories.forEach((category) => {
+
+    pod.categories.forEach((category) => {
       const c = new Category(
         category.name,
         category.artist,
         category.id
       );
+
       category.painting.forEach((painting) => {
         const p = new Painting(
         painting.name,
@@ -26,4 +29,5 @@ fetch("https://localhost:5001/Gallery/GetGallery").then((p) => {
     });
     g.draw(document.body);
   });
+});
 });
