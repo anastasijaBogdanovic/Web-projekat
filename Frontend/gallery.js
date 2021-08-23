@@ -66,9 +66,9 @@ export class Gallery {
 
       categ.appendChild(link);
       link.addEventListener("click", function(){
-        var categoryName = document.querySelector(".categoryName");
+        var categoryName = this.container.querySelector(".categoryName");
         categoryName.innerHTML = a.innerHTML;
-        element.draw(document.querySelector(".page"));
+        element.draw(this.container.querySelector(".page"));
       });
       link.appendChild(a);
     });
@@ -201,14 +201,14 @@ export class Gallery {
   }
 
   addPainting() {
-    const name = document.querySelector(".editname").value;
-    const artist = document.querySelector(".editartist").value;
-    const created = document.querySelector(".editYearOfCreation").value;
-    const dimensions = document.querySelector(".editdimensions").value;
-    const imageOfPainting = document.querySelector(".editpaintingsimg").value;
+    const name = this.container.querySelector(".editname").value;
+    const artist = this.container.querySelector(".editartist").value;
+    const created = this.container.querySelector(".editYearOfCreation").value;
+    const dimensions = this.container.querySelector(".editdimensions").value;
+    const imageOfPainting = this.container.querySelector(".editpaintingsimg").value;
     const id = 0;
 
-    const a = document.querySelector(".comboBox").value;
+    const a = this.container.querySelector(".comboBox").value;
     console.log(a);
     this.categories.forEach((element) => {
       if (element.name == a) {
@@ -246,7 +246,7 @@ export class Gallery {
             alert("Error");
           });
 
-          this.emptyList(document.querySelector(".page"), "added");
+          this.emptyList(this.container.querySelector(".page"), "added");
           this.emptyForm();
         
 
@@ -257,8 +257,8 @@ export class Gallery {
 emptyList(host, x) {
   if (!host) throw new Error("Host is undefined");
 
-  document.querySelector(".categoryName").innerHTML = "You have " + x + " the painting"; 
-  var el = document.querySelector(".list");
+  this.container.querySelector(".categoryName").innerHTML = "You have " + x + " the painting"; 
+  var el = this.container.querySelector(".list");
   host.removeChild(el);
 
   const list = document.createElement("div");
@@ -276,14 +276,14 @@ emptyList(host, x) {
   }
 
   updatePainting() {
-    let painting = this.findPainting(document.querySelector(".id").value);
+    let painting = this.findPainting(this.container.querySelector(".id").value);
     if (painting != null) {
-      const id = document.querySelector(".id").value;
-      const name = document.querySelector(".editname").value;
-      const artist = document.querySelector(".editartist").value;
-      const created = document.querySelector(".editYearOfCreation").value;
-      const dimensions = document.querySelector(".editdimensions").value;
-      const imageOfPainting = document.querySelector(".editpaintingsimg").value;
+      const id = this.container.querySelector(".id").value;
+      const name = this.container.querySelector(".editname").value;
+      const artist = this.container.querySelector(".editartist").value;
+      const created = this.container.querySelector(".editYearOfCreation").value;
+      const dimensions = this.container.querySelector(".editdimensions").value;
+      const imageOfPainting = this.container.querySelector(".editpaintingsimg").value;
       
       fetch("https://localhost:5001/Gallery/UpdatePainting", {
         method: "PUT",
@@ -314,17 +314,17 @@ emptyList(host, x) {
           alert("Error");
         }); 
 
-        this.emptyList(document.querySelector(".page"), "updated");
+        this.emptyList(this.container.querySelector(".page"), "updated");
         this.emptyForm();  
     }
   }
 
   updateList(){
-        var child = document.querySelector(".list");
+        var child = this.container.querySelector(".list");
         let parent = child.parentNode;
         parent.removeChild(child);
     
-        const list = document.createElement("div");
+        const list = this.container.createElement("div");
         list.className = "list";
         parent.appendChild(list);
         
@@ -334,14 +334,14 @@ emptyList(host, x) {
   }
 
   emptyForm(){
-    document.querySelector(".editname").value = "";
-    document.querySelector(".editartist").value = ""; 
-    document.querySelector(".editYearOfCreation").value = null;
-    document.querySelector(".editdimensions").value = "";
-    document.querySelector(".editpaintingsimg").value = "";
-    document.querySelector(".id").value = "";
-    document.querySelector(".img").src = "";
-    document.querySelector(".comboBox").disabled = false;
-    document.querySelector(".addbtn").disabled = false;
+    this.container.querySelector(".editname").value = "";
+    this.container.querySelector(".editartist").value = ""; 
+    this.container.querySelector(".editYearOfCreation").value = null;
+    this.container.querySelector(".editdimensions").value = "";
+    this.container.querySelector(".editpaintingsimg").value = "";
+    this.container.querySelector(".id").value = "";
+    this.container.querySelector(".img").src = "";
+    this.container.querySelector(".comboBox").disabled = false;
+    this.container.querySelector(".addbtn").disabled = false;
 }
 }
